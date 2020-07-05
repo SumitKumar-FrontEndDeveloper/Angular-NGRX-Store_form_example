@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="InnerBox">
+    <div><h2>Add User</h2></div>
+    <form [formGroup]='UserForm' (ngSubmit)="addUserInNgRXStore()">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="name" placeholder="name"  />
+        <p class="error" *ngIf="formRef.name.touched && formRef.name.hasError('required')" >name is required</p>
+      </div>
+    <div class="form-group">
+    <input class="form-control" type="text" formControlName="email" placeholder="email"   />
+    <p class="error" *ngIf="formRef.email.touched && formRef.email.invalid" >Please enter valid email id</p>
+    <p class="error" *ngIf="formRef.email.touched && formRef.email.hasError('required')" >Please enter email id</p>
+    </div>
+
+    <div class="form-group">
+      <select formControlName="gender" class="browser-default custom-select custom-select-lg mb-3" (change)="changeGender($event)">
+        <option  value="">Select Gender</option>
+        <option  value="Male">Male</option>
+        <option value="Female" value="female">Female</option>
+      </select>
+    </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!UserForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+

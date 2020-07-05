@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+      <th scope="col"><button type="button" class="btn btn-secondary" (click)="addUser()">Add User</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of usersData | async;let i=index">
+      <th scope="row">1</th>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.gender}}</td>
+      <td><button type="button" class="btn btn-danger" (click)="deleteUser(i)">Delete</button></td>
+    </tr>
+
+  </tbody>
+</table>
